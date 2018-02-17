@@ -63,8 +63,7 @@ class App extends Component {
             value={this.state.search}
             onChange={this.handleSearch}
           />
-          <button
-            className="button"
+          <button className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
             type="submit"
           >
             Find

@@ -17,6 +17,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "postcss-cli": "^5.0.0",
     "tailwindcss": "^0.4.1"
   }
 }
