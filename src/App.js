@@ -7,13 +7,18 @@ class App extends Component {
     super(props);
 
     this.state = {
-      name: "",
-      image: "",
-      search: ""
+      name: "bulbasaur",
+      image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      search: "",
+      notFound: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  componentDidMount() {
+    document.title="Pokédex"
   }
 
   handleSearch = (e) => {
@@ -34,7 +39,13 @@ class App extends Component {
           image: data.sprites.front_default
         })
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+
+        this.setState({
+          notFound: true
+        })
+      });
 
   }
 
@@ -44,7 +55,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Espèce: {this.state.name}</h1>
         </header>
-        <img className="picture" url={this.state.image} alt={this.state.pokemon} />
+        <img className="picture" src={this.state.image} alt={this.state.pokemon} />
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -59,6 +70,9 @@ class App extends Component {
             Find
           </button>
         </form>
+        {this.state.notFound &&
+          <p>Not found! Try again.</p>
+        }
       </div>
     );
   }
