@@ -10,6 +10,7 @@ class App extends Component {
       name: "bulbasaur",
       image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
       search: "",
+      weight: "60",
       notFound: false
     }
 
@@ -34,9 +35,13 @@ class App extends Component {
       .then(response => {
         let data = response.data;
 
+        console.log(data)
+
         this.setState({
           name: data.name,
-          image: data.sprites.front_default
+          image: data.sprites.front_default,
+          weight: data.weight,
+          notFound: false
         })
       })
       .catch(error => {
@@ -53,7 +58,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Espèce: {this.state.name}</h1>
+          <h1 className="App-title">{this.state.name}</h1>
+          <h2 className="weight">{this.state.weight} lb</h2>
         </header>
         <img className="picture" src={this.state.image} alt={this.state.pokemon} />
         <form onSubmit={this.handleSubmit}>
