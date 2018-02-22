@@ -2,7 +2,7 @@ $opacity: 0.25;
 
 body {
   background: #9db3b9;
-  font-size: 20px;
+  font-size: 2vh;
 }
 
 #gameboy {
@@ -120,7 +120,7 @@ body {
 #screen-display {
   width: 11.3em;
   height: 9.7em;
-  background: #6d793c;
+  background: white;
   background-size: 100% 100%;
   border-top: 0.1em solid #5d5e60;
   //border-left:0.1em solid #636650;

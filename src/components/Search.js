@@ -23,16 +23,18 @@ class Search extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     axios.get(`https://cors.io/?http://pokeapi.co/api/v2/pokemon/${this.state.search}`)
       .then(response => {
         let data = response.data;
 
-        console.log(data)
+        const pokemon_data = {
+          name: data.name,
+          sprite: data.sprites.front_default
+        }
+
+        this.props.onSearch(pokemon_data);
 
         this.setState({
-          name: data.name,
-          image: data.sprites.front_default,
           weight: data.weight,
           notFound: false
         })
@@ -45,11 +47,12 @@ class Search extends Component {
         })
       });
 
+
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="search-form">
         <input
           type="text"
           placeholder="Search Pokémon"

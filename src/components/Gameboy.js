@@ -22,8 +22,7 @@ class Gameboy extends Component {
               <div id="screen-circle" className="screen-on"></div>
               <div id="screen-left-text"></div>
               <div id="screen-display">
-
-                <div id="screen-display-triangle"></div>
+                {this.props.children}
               </div>
             </div>
           </div>
