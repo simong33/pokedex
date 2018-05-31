@@ -9,11 +9,11 @@ body {
   width: 19.8em;
   height: 33.1em;
   background: #e6e7e8;
-  margin: 5% auto 0 auto;
   border-radius: 1em;
   border-bottom-right-radius: 4em;
   position: relative;
   border: 0.1em solid #f3fbf5;
+  transition: 300ms all linear;
 }
 
 #header-v {
